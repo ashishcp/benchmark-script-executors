@@ -1,0 +1,52 @@
+/*
+    new Function0[com.nashornpoc.LinePrinter] {
+
+        override def apply(): com.nashornpoc.LinePrinter = {
+            print(".")
+            new com.nashornpoc.LinePrinter() {
+              override def scriptSays(name: String, num: Int): String = {
+                def generateMultipliedString(itr: Int = num, result: String = ""): String = {
+                  if (itr == 0) {
+                    println(result)
+                    result
+                  } else {
+                    generateMultipliedString(itr - 1, result + s"Hello $name, from Groovy. ")
+                  }
+                }
+                generateMultipliedString()
+              }
+            }
+        }
+
+        override def toString: String = "Line Printer Generator Function"
+
+    }
+*/
+
+new Function2[String, Int, String] {
+
+    override def apply(name: String, num: Int): String = {
+
+        var counter = num
+        var result = ""
+
+        while(counter > 0) {
+            result += s"Hello $name, from Scala. "
+            counter -= 1
+        }
+
+        result
+        /*
+        def generateMultipliedString(itr: Int = num, result: String = ""): String = {
+          if (itr == 0) {
+            println(result)
+            result
+          } else {
+            generateMultipliedString(itr - 1, result + s"Hello $name, from Scala. ")
+          }
+        }
+        generateMultipliedString()
+        */
+      }
+//    override def toString: String = "Line Printer Generator Function"
+}
